@@ -8,11 +8,12 @@ const randomIn = (min, max) => (
 const mixupInterval = el => {
   const ms = randomIn(2000, 4000);
   el.style.setProperty('--interval', `${ms}ms`);
-}
+};
 
 signs.forEach(el => {
   mixupInterval(el);
   el.addEventListener('webkitAnimationIteration', () => {
     mixupInterval(el);
-  })
-})
+  });
+  
+});
