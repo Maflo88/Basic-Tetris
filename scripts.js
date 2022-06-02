@@ -15,5 +15,4 @@ let letters = txt.split('');
   //title.innerHTML = newTxt
 //}
 
-
 });
