@@ -285,4 +285,5 @@ function gameOver() {
       document.removeEventListener('keydown', control);
     }
 }
+  
 });
