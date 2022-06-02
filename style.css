@@ -1,0 +1,310 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Yellowtail&display=swap');
+/*Bungee*/
+@import url('https://use.typekit.net/hvm1mda.css');
+@import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
+
+body{
+  background-color: #242423;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  font-size: 1em;
+  line-height: 1.5;
+}
+
+body::before{
+  content:' ';
+  position:absolute;
+  width:100vw;
+  height:100vh;
+  top:0;
+  left:0;
+  opacity:0.3;
+  background-position-y: 0px;
+  background-image:
+        repeating-linear-gradient(90deg, #504a64 0%,transparent 1px, transparent 50px, #504a64 50px),repeating-linear-gradient(180deg,#504a64 0%,transparent 1px, transparent 50px,#504a64 50px );
+  -webkit-mask-image: radial-gradient(circle at 50% 60%, black 50%, rgba(0, 0, 0, 0.6) 50%);
+  mask-image: radial-gradient(circle at 50% 60%, black 50%, rgba(0, 0, 0, 0.6) 50%);
+}
+
+/****Neon effect from Erik Jung, CodePen: https://codepen.io/erikjung/pen/XdWEKE ****/
+.neon {
+  --interval: 1s;
+  text-shadow:
+    0 0 10px var(--color1),
+    0 0 20px var(--color2),
+    0 0 40px var(--color3),
+    0 0 80px var(--color4);
+  will-change: filter, color;
+  filter: saturate(60%);
+  animation: text-flicker steps(100) var(--interval) 1s infinite;
+}
+.neon.subtitle{
+  color: lightpink;
+  --color1: pink;
+  --color2: crimson;
+  --color3: fuchsia;
+  --color4: magenta;
+}
+
+@keyframes text-flicker {
+  50% {
+    color: white;
+    filter: saturate(200%) hue-rotate(20deg);
+  }
+}
+
+/*******************************************************************************/
+.container {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.title-container{
+  position: relative;
+}
+
+h1{
+  font-family: bungee, 'Bungee', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 4em;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  line-height: 2em;
+  background: #40E0D0;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(-86deg, #f61067 25%, #5e239d 50%, #00d0a0 60%);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(-86deg, #f61067 25%, #5e239d 50%, #00d0a0 60%); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-stroke: 4px transparent;
+  -webkit-text-fill-color: #242423; /* Will override color (regardless of order) */
+}
+
+#title{
+  text-shadow: 0rem 0rem .3rem #f3f9a7;
+}
+
+h2{
+  font-family: 'Yellowtail', cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 2.75em;
+  color: white;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  margin-top: -1.25em;
+  padding-left: 3.75em;
+  transform: rotate(-12deg);
+}
+p, h3, .gameover{
+  font-family: 'Press Start 2P', 'Oxanium', cursive;
+  color: white;
+}
+
+h3{
+  font-size: 0.75em;
+  font-weight: 400;
+  font-style: normal;
+  text-transform: uppercase;
+  text-shadow: 0.1rem 0.15rem grey;
+}
+
+h1,h2{
+  text-align: center;
+}
+
+.grid-container{
+  margin: 1.88rem 0rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+/**** Flickering Neon Sign Effect using CSS Text & Box Shadow by George W. Park,
+Codepen: codepen.io/GeorgePark/pen/MrjbEr****/
+
+.grid::after{
+  content: '';
+  display: block;
+  position: absolute;
+  box-sizing: border-box;
+  width: 207px;
+  height: 406px;
+  margin-left: -3px;
+  margin-top: -3px;
+  border: 0.15rem solid #fff;
+  border-radius: .5rem;
+  opacity: 0.5;
+}
+
+.grid{
+  --neon-border-color: #00d0a0;
+  width: 202px;
+  height: 402px;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 2px 0px 0px 2px;
+  background-color: rgba(36, 36, 35, 0.5);
+  /*border: 0.1rem solid #fff;*/
+  border-radius: .5rem;
+  /*box-shadow: 0 0 0.6rem 0.25em #08f;*/
+  animation: flicker 1.5s infinite alternate;
+  z-index: 10;
+}
+
+.grid::-moz-selection{
+  background-color: var(--neon-border-color);
+}
+.grid::selection{
+  background-color: var(--neon-border-color);
+}
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    box-shadow:
+          0 0 .2rem #fff,
+          inset 0 0 .1rem #fff,
+          0 0 .6rem var(--neon-border-color),
+          inset 0 0 .3rem var(--neon-border-color),
+          0 0 .6rem var(--neon-border-color),
+          inset 0 0 .3rem var(--neon-border-color)
+   }
+
+  20%, 24%{
+    box-shadow:
+           0 0 .2rem #fff,
+           inset 0 0 .2rem #fff,
+           0 0 .6rem var(--neon-border-color),
+           inset 0 0 .6rem var(--neon-border-color),
+           0 0 .6rem var(--neon-border-color),
+           inset 0 0 .6rem var(--neon-border-color);
+     }
+
+     55% {
+       box-shadow: none;
+   }
+}
+/****************************************************************************/
+
+.grid div{
+  height: 20px;
+  width: 20px;
+  z-index: 11;
+}
+
+#gameover{
+  position: relative;
+  top: -60%;
+  width: 202px;
+  text-align: center;
+}
+.no-display{
+    display: none;
+}
+.on-display{
+  display: inline-block;
+}
+
+.side-bar{
+  width: 200px;
+  height: 275px;
+  display: flex;
+  flex-wrap: wrap;
+  z-index: 1000;
+}
+
+.info{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 50px;
+}
+
+.mini-grid{
+  --neon-border-color: #f61067;
+  margin-left: 50px;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: rgba(36, 36, 35, 0.5);
+  /*padding: 2px 0px 0px 2px;*/
+  padding: 12.5px 0px 12.5px 20px;
+  border-radius: .5rem;
+  animation: flicker 1.5s infinite alternate;
+}
+
+.mini-grid::after{
+  content: '';
+  display: block;
+  position: absolute;
+  box-sizing: border-box;
+  width: 101px;
+  height: 109px;
+  margin-left: -20px;
+  margin-top: -15px;
+  border: 0.15rem solid #fff;
+  border-radius: .5rem;
+  opacity: 0.5;
+}
+
+.mini-grid div{
+  width: 20px;
+  height: 20px;
+}
+
+.tetromino{
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-shadow: 0px 0px 4px -0.75px #ccc, inset 1px 1px 2px #505050, inset -1px -1px 2px #505050;
+  border-radius: 4px;
+  border-style: solid;
+  border-color: rgba(50, 50, 50, 0.5);
+  border-width: 2px;
+  background-image: radial-gradient(circle, rgba(255,255,255,.70) 5%, rgba(255,255,255,0) 50%);
+  /*background-color: #242423;
+  /*background-image: radial-gradient(#f61067 28%, #5e239d 50%, #00ffc5 74%);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  /*border-image: linear-gradient(45deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+  border-image-slice: 1;*/
+}
+
+button{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+button:focus{
+  outline: 0px;
+}
+
+button:hover, button:visited, #start-button:focus{
+  background-color: #f61067;
+  cursor: none;
+}
+
+.btn-container{
+  margin-left: 50px;
+  margin-top: -10px;
+  align-self: flex-start;
+}
+
+.btn{
+  font-family: 'Press Start 2P', 'Oxanium', cursive;
+  font-size: 0.63em;
+  padding: 15px 15px;
+  color: white;
+  border: 2px solid white;
+  background-color: #00d0a0;
+  text-shadow: 0.1rem 0.15rem dimgrey;
+  box-shadow: 0.25em 0.25em white;
+}
